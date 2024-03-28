@@ -1,12 +1,13 @@
-import { Metadata } from 'next';
-import React from 'react';
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Not Found',
+  title: "Not found",
 };
 
-function NotFound(cl) {
-  return <div>Not Found</div>;
+export default function NotFound() {
+  return (
+    <div>
+      <h1>Not found!</h1>
+    </div>
+  );
 }
-
-export default NotFound;
