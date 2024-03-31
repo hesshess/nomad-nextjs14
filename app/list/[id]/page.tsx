@@ -25,12 +25,12 @@ interface IResponse {
 let books = [];
 let genre = '';
 
-export async function getList(id: string): Promise<IResponse> {
+async function getList(id: string): Promise<IResponse> {
   const response = await fetch(`${API_URL}/list?name=${id}`);
   return response.json();
 }
 
-export async function generateMetadata({ params: { id } }: IParams) {
+async function generateMetadata({ params: { id } }: IParams) {
   const results = (await getList(id)).results;
   books = results.books;
   genre = results.list_name;
