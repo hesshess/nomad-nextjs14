@@ -1,0 +1,9 @@
+.genre {
+    list-style: none;
+    transform: none;
+    transition: all 0.1s ease-in-out;
+  }
+.genre:hover {
+    transform: scale(1.1);
+    color:rgb(128, 0, 128);
+  }

@@ -1,13 +1,13 @@
 export const metadata = {
-  title: "About us",
+  title: 'About us',
 };
 
 export default function AboutUs() {
   return (
     <div>
-      <h1>About us!</h1>
+      <h1 style={{ textAlign: 'center' }}>About us!</h1>
     </div>
   );
 }
 
-export const runtime = "edge";
+export const runtime = 'edge';

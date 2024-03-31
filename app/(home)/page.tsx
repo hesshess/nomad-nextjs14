@@ -1,32 +1,38 @@
-import Movie from "../../components/movie";
-import styles from "../../styles/home.module.css";
-import { API_URL } from "../constants";
+import Genre from './genre';
+import styles from './home.module.css';
+import { API_URL } from '../constants';
 
 export const metadata = {
-  title: "Home",
+  title: 'Home',
 };
+interface IGenre {
+  list_name: string;
+  display_name: string;
+  list_name_encoded: string;
+  oldest_published_date: string;
+  newest_published_date: string;
+  updated: string;
+}
 
-async function getMovies() {
-  // await new Promise((resolve) => setTimeout(resolve, 1000));
-  const response = await fetch(API_URL);
+async function getLists(): Promise<IGenre[]> {
+  const response = await fetch(`${API_URL}/lists`);
   const json = await response.json();
-  return json;
+  return json.results;
 }
 
 export default async function HomePage() {
-  const movies = await getMovies();
+  const lists = await getLists();
   return (
     <div className={styles.container}>
-      {movies.map((movie) => (
-        <Movie
-          key={movie.id}
-          id={movie.id}
-          poster_path={movie.poster_path}
-          title={movie.title}
+      {lists.map((list) => (
+        <Genre
+          key={list.list_name_encoded}
+          id={list.list_name_encoded}
+          list_name={list.list_name}
         />
       ))}
     </div>
   );
 }
 
-export const runtime = "edge";
+export const runtime = 'edge';
