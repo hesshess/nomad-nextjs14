@@ -30,7 +30,7 @@ async function getList(id: string): Promise<IResponse> {
   return response.json();
 }
 
-async function generateMetadata({ params: { id } }: IParams) {
+export async function generateMetadata({ params: { id } }: IParams) {
   const results = (await getList(id)).results;
   books = results.books;
   genre = results.list_name;

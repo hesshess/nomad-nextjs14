@@ -16,13 +16,7 @@ export default function Genre({ list_name, id }: IListProps) {
   };
   return (
     <div className={styles.genre}>
-      <Link
-        prefetch
-        href={{
-          pathname: `/list/${id}`,
-          query: { name: list_name },
-        }}
-      >
+      <Link prefetch href={`/list/${id}`}>
         {list_name}
       </Link>
     </div>
